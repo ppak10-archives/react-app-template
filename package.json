@@ -1,0 +1,53 @@
+{
+  "name": "replace-me-with-your-repository-name",
+  "version": "1.0.0",
+  "description": "replace-me-with-your-repository-description",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ppak10/react-app-template.git"
+  },
+  "author": "replace-me-with-your-name",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ppak10/react-app-template/issues"
+  },
+  "homepage": "https://github.com/ppak10/react-app-template#readme",
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "autoprefixer": "^9.7.4",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.4.2",
+    "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "husky": "^4.2.1",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "lint-staged": "^10.0.2",
+    "postcss-loader": "^3.0.0",
+    "precss": "^4.0.0",
+    "prettier": "^1.19.1",
+    "prop-types": "^15.7.2",
+    "style-loader": "^1.1.3",
+    "stylelint": "^13.0.0",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-order": "^4.0.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
+}
