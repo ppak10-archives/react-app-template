@@ -4,11 +4,22 @@
  */
 
 // Node Modules
-import path from 'path';
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+// Plugins
+const htmlWebpackPlugin = new HtmlWebpackPlugin({
+  template: path.join(__dirname, 'public/index.html'),
+  filename: './index.html',
+});
 
 module.exports = {
+  devServer: {
+    port: 3000,
+    historyApiFallback: true,
+  },
   entry: {
-    index: ['./app/index.js'],
+    index: ['./src/index.js'],
   },
   mode: 'development',
   module: {
@@ -58,6 +69,7 @@ module.exports = {
     filename: '[name].bundle.js',
     publicPath: '/',
   },
+  plugins: [htmlWebpackPlugin],
   resolve: {
     extensions: ['.js', '.jsx'],
   },
