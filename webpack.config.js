@@ -9,7 +9,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // Plugins
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
-  template: path.join(__dirname, 'public/index.html'),
+  template: path.join(__dirname, 'index.html'),
   filename: './index.html',
 });
 
@@ -58,7 +58,7 @@ module.exports = {
             },
           },
           {
-            loader: 'less-loader', // Compiles scss code to css
+            loader: 'less-loader', // Compiles LESS code to css
           },
         ],
       },

@@ -18,7 +18,9 @@
   "homepage": "https://github.com/ppak10/react-app-template#readme",
   "dependencies": {
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-app-elements": "0.0.8",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.3",
@@ -31,7 +33,7 @@
     "css-loader": "^3.4.2",
     "eslint": "^6.8.0",
     "eslint-config-google": "^0.14.0",
-    "eslint-config-prettier": "^6.9.0",
+    "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.0",
     "eslint-plugin-react-hooks": "^2.3.0",
@@ -39,7 +41,7 @@
     "husky": "^4.2.1",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
-    "lint-staged": "^10.0.2",
+    "lint-staged": "^10.0.4",
     "postcss-loader": "^3.0.0",
     "precss": "^4.0.0",
     "prettier": "^1.19.1",
