@@ -5,7 +5,7 @@
 
 // Node Modules
 import React from 'react';
-import {Card, Layout, Sidebar} from 'react-app-elements';
+import {Card, Grid, Layout, Sidebar} from 'react-app-elements';
 // import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 export default function App() {
@@ -13,16 +13,16 @@ export default function App() {
 <div className="layout-row">
       <Layout.PageLayout>
         <div>Hello World</div>
-        <Layout.GridLayout>
-          <Card.PolaroidCard />
-          <Card.PolaroidCard />
-          <Card.PolaroidCard />
-          <Card.PolaroidCard />
-          <Card.PolaroidCard />
-          <Card.PolaroidCard />
-          <Card.PolaroidCard />
-          <Card.PolaroidCard />
-        </Layout.GridLayout>
+        <Grid.PolaroidContainer>
+          <Card.Polaroid/>
+          <Card.Polaroid/>
+          <Card.Polaroid/>
+          <Card.Polaroid/>
+          <Card.Polaroid/>
+          <Card.Polaroid/>
+          <Card.Polaroid/>
+          <Card.Polaroid/>
+        </Grid.PolaroidContainer>
       </Layout.PageLayout>
       <Sidebar.DrawerSidebar side="right">
         <div>Hello</div>
