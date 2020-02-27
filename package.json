@@ -4,7 +4,9 @@
   "description": "replace-me-with-your-repository-description",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "build": "webpack",
+    "dev": "set NODE_ENV=development && webpack-dev-server",
+    "start": "set NODE_ENV=staging && webpack --watch"
   },
   "repository": {
     "type": "git",

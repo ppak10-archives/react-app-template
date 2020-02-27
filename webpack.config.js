@@ -7,21 +7,19 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+// Config
+const DEVELOPMENT = require('./config/webpack/development.json');
+
 // Plugins
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
   template: path.join(__dirname, 'index.html'),
   filename: './index.html',
 });
 
-module.exports = {
-  devServer: {
-    port: 3000,
-    historyApiFallback: true,
-  },
+let CONFIG = {
   entry: {
     index: ['./src/index.js'],
   },
-  mode: 'development',
   module: {
     rules: [
       {
@@ -73,4 +71,28 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-};
+}
+
+
+
+module.exports = () => {
+  switch(process.env.NODE_ENV.trim()) {
+    case 'development':
+      CONFIG = {
+        ...CONFIG,
+        ...DEVELOPMENT,
+      }
+      break;
+    case 'staging':
+      CONFIG = {
+        ...CONFIG,
+        ...DEVELOPMENT,
+        output: {
+          path: path.resolve(__dirname, '../backend-repository/static'),
+          filename: '[name].bundle.js',
+          publicPath: '/',
+        }
+      }
+  }
+  return CONFIG;
+}
