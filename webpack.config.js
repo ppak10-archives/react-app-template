@@ -5,21 +5,12 @@
 
 // Node Modules
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-// Config
-const DEVELOPMENT = require('./config/webpack/development.json');
-
-// Plugins
-const htmlWebpackPlugin = new HtmlWebpackPlugin({
-  template: path.join(__dirname, 'index.html'),
-  filename: './index.html',
-});
 
 let CONFIG = {
   entry: {
     index: ['./src/index.js'],
   },
+  mode: 'development',
   module: {
     rules: [
       {
@@ -67,7 +58,6 @@ let CONFIG = {
     filename: '[name].bundle.js',
     publicPath: '/',
   },
-  plugins: [htmlWebpackPlugin],
   resolve: {
     extensions: ['.js', '.jsx'],
   },
@@ -80,13 +70,16 @@ module.exports = () => {
     case 'development':
       CONFIG = {
         ...CONFIG,
-        ...DEVELOPMENT,
+        devServer: {
+          contentBase: path.join(__dirname, 'public'),
+          historyApiFallback: true,
+          port: 3000,
+        }
       }
       break;
     case 'staging':
       CONFIG = {
         ...CONFIG,
-        ...DEVELOPMENT,
         output: {
           path: path.resolve(__dirname, '../backend-repository/static'),
           filename: '[name].bundle.js',
