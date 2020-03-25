@@ -6,7 +6,10 @@
 // Node Modules
 const path = require('path');
 
-let CONFIG = {
+// Constants
+import {output} from 'app';
+
+const CONFIG = {
   entry: {
     index: ['./src/index.js'],
   },
@@ -54,38 +57,39 @@ let CONFIG = {
     ],
   },
   output: {
-    path: path.resolve(__dirname, './public'),
+    path: path.resolve(__dirname, output.dist),
     filename: '[name].bundle.js',
     publicPath: '/',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-}
-
-
+};
 
 module.exports = () => {
-  switch(process.env.NODE_ENV.trim()) {
+  switch (process.env.NODE_ENV.trim()) {
     case 'development':
-      CONFIG = {
+      return {
         ...CONFIG,
         devServer: {
-          contentBase: path.join(__dirname, 'public'),
+          contentBase: './',
           historyApiFallback: true,
           port: 3000,
-        }
-      }
-      break;
+        },
+      };
     case 'staging':
-      CONFIG = {
+      return {
         ...CONFIG,
         output: {
-          path: path.resolve(__dirname, '../backend-repository/static'),
+          path: path.resolve(__dirname, output.backend),
           filename: '[name].bundle.js',
           publicPath: '/',
-        }
-      }
+        },
+      };
+    case 'production':
+      return {
+        ...CONFIG,
+        mode: 'production',
+      };
   }
-  return CONFIG;
-}
+};

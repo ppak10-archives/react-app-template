@@ -1,0 +1,6 @@
+{
+  "output": {
+    "backend": "../backend-repository/static",
+    "dist": "./dist"
+  }
+}

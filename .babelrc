@@ -14,6 +14,7 @@
       "root": ["./"],
       "alias": {
         "actions": "./src/action",
+        "app": "./app.json",
         "components": "./src/components",
         "reducers": "./src/reducers"
       }
