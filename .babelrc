@@ -8,5 +8,15 @@
       }
     ], 
     "@babel/preset-react"
+  ],
+  "plugins": [
+    ["module-resolver", {
+      "root": ["./"],
+      "alias": {
+        "actions": "./src/action",
+        "components": "./src/components",
+        "reducers": "./src/reducers"
+      }
+    }]
   ]
 }
