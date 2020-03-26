@@ -4,13 +4,26 @@ Minimum boilerplate template for front-end applications built with react
 ## Getting Started
 Clone this repository and run `npm install`
 
-### Webpack Development Server (DEPRECATED)
-1. Start webpack-dev-server with `npm start`
-2. Open `localhost:3000` to view website on development server
-    * Webpack will watch for changes and hot load any updates to the bundle.
+### Express Backend
+1. The express backend is already configured to serve static files from `public/` but you can change the values of the webpack output path and express static folder in `app.json`.
+    ```
+    {
+      "express": {
+        "output": {
+          "path": "./public/js"
+        },
+        "static": "public"
+      }
+    } 
+    ```
+#### Development
+1. Run the server in development environment with `npm start`
 
-### Development
-#### Local Backend (i.e. Flask, Django, etc.)
+#### Production
+1. Build the webpack bundle with `npm run build-express`
+2. Run the production version of the server with `npm run express`
+
+### Local Backend (i.e. Flask, Django, etc.)
 1. The frontend and backend repositories should share the same parent directory
     * Set output directory for backend in `app.json` under `local.output.path`
       ```
@@ -28,23 +41,10 @@ Clone this repository and run `npm install`
       ├── backend-repository
       └── frontend-repository
       ```
-    * Remove webpack development server with `npm uninstall webpack-dev-server` (Optional) 
-2. After changing configurations, run `npm start` and <kbd>command</kbd> / <kbd>Ctrl</kbd> + <kbd>shift</kbd> + <kbd>R</kbd> to load changes.
+#### Development
+1. After updating those configurations, run `npm run build-local-watch` to build with webpack and watch for changes.
+2. You may need to reload bundle updates with a hard refresh <kbd>command</kbd> / <kbd>Ctrl</kbd> + <kbd>shift</kbd> + <kbd>R</kbd> to load changes.
     * Webpack will continue to watch for changes, but you will typically need to hard refresh the browser to tell the server to send the updated bundle file.
 
-#### Express Backend
-1. The frontend and backend repositories should share the same parent directory
-    * Set output directory for backend in `app.json` under `local.output.path`
-      ```
-      {
-        "express": {
-          "output": {
-            "path": "./dist"
-          }
-        }
-      } 
-      ```
-
-### Production
-#### Local Backend
-#### Express Backend
+#### Production
+1. Build the webpack bundle to the same directory but for production environments with `npm run build-local`

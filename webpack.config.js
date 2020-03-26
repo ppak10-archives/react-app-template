@@ -66,7 +66,9 @@ const CONFIG = {
 };
 
 module.exports = (env) => {
-  CONFIG.mode = process.env.NODE_ENV.trim();
+  if (process.env.NODE_ENV && process.env.NODE_ENV.trim() === 'development') {
+    CONFIG.mode = 'development';
+  }
   if (env.local) {
     CONFIG.output.path = path.resolve(__dirname, local.output.path);
   } else if (env.express) {

@@ -12,7 +12,7 @@
   },
   "express": {
     "output": {
-      "path": "./dist"
+      "path": "./public/js"
     }
   },
   "local": {
