@@ -13,7 +13,8 @@
   "express": {
     "output": {
       "path": "./public/js"
-    }
+    },
+    "static": "public"
   },
   "local": {
     "output": {

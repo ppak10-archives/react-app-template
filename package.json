@@ -9,8 +9,9 @@
     "build-express-watch": "webpack --env.express --watch",
     "build-local": "webpack --env.local",
     "build-local-watch": "webpack --env.local --watch",
+    "dev": "concurrently \"npm run express\" \"npm run build-express-watch\"",
     "express": "npx babel-node .",
-    "start": "concurrently \"npm run express\" \"npm run build-express-watch\""
+    "start": "npm run build-express && npm run express"
   },
   "repository": {
     "type": "git",
