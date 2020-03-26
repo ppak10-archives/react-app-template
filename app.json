@@ -1,6 +1,23 @@
 {
-  "output": {
-    "backend": "../backend-repository/static",
-    "dist": "./dist"
+  "development": {
+    "port": 3000
+  },
+  "production": {
+    "port": 8080
+  },
+  "build": {
+    "output": {
+      "path": "./dist"
+    }
+  },
+  "express": {
+    "output": {
+      "path": "./dist"
+    }
+  },
+  "local": {
+    "output": {
+      "path": "../backend-repository/static"
+    }
   }
 }

@@ -7,13 +7,12 @@
 const path = require('path');
 
 // Constants
-import {output} from 'app';
+const {build, express, local} = require('./app.json');
 
 const CONFIG = {
   entry: {
     index: ['./src/index.js'],
   },
-  mode: 'development',
   module: {
     rules: [
       {
@@ -57,7 +56,7 @@ const CONFIG = {
     ],
   },
   output: {
-    path: path.resolve(__dirname, output.dist),
+    path: path.resolve(__dirname, build.output.path),
     filename: '[name].bundle.js',
     publicPath: '/',
   },
@@ -66,30 +65,18 @@ const CONFIG = {
   },
 };
 
-module.exports = () => {
-  switch (process.env.NODE_ENV.trim()) {
-    case 'development':
-      return {
-        ...CONFIG,
-        devServer: {
-          contentBase: './',
-          historyApiFallback: true,
-          port: 3000,
-        },
-      };
-    case 'staging':
-      return {
-        ...CONFIG,
-        output: {
-          path: path.resolve(__dirname, output.backend),
-          filename: '[name].bundle.js',
-          publicPath: '/',
-        },
-      };
-    case 'production':
-      return {
-        ...CONFIG,
-        mode: 'production',
-      };
+module.exports = (env) => {
+  CONFIG.mode = process.env.NODE_ENV.trim();
+  if (env.local) {
+    CONFIG.output.path = path.resolve(__dirname, local.output.path);
+  } else if (env.express) {
+    CONFIG.output.path = path.resolve(__dirname, express.output.path);
+  } else {
+    CONFIG.devServer = {
+      contentBase: './',
+      historyApiFallback: true,
+      port: 3000,
+    };
   }
+  return CONFIG;
 };
