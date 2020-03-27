@@ -11,7 +11,7 @@ Minimum boilerplate template for front-end applications built with react
     npm start
     ```
     * This will build the production version of the Webpack bundle along with express server.
-3. Open [localhost:8080](localhost:8080) to view the production instance of the server.
+3. Open [`localhost:8080`](localhost:8080) to view the production instance of the server.
 
 ### Development Environments
 If you already have the `NODE_ENV` configured you can run the development version of the Express server and watch for changes with:
@@ -32,6 +32,26 @@ npm run dev
     ```
     echo $NODE_ENV
     ```
+
+#### Windows 10
+##### Powershell
+Use Powershell set `NODE_ENV` variable to `development` with:
+```
+$env:NODE_ENV="development"
+```
+  * **Note:** This value will not persist after you close the terminal.
+
+##### System Variables
+To persist the `NODE_ENV` after closing Powershell follow these steps:
+1. Type in `environment` into the search bar and open the dialog box for `System Properties` and under `Advanced` click on `Environment Variables`
+2. Under the `System variables`, click the `New...` button to create an environment variable with the values:
+    ```
+    Variable name: NODE_ENV
+    Variable value: development
+    ```
+    * If you work on a shared machine, you should probably add the variable to `User variables` instead of `System variables`.
+3. After entering these values make sure to exit by **clicking** `OK` otherwise the changes will not save.
+4. Restart Windows to use the updated environment variables.
 ### Backends
 #### Express
 1. The express backend is already configured to serve static files from `public/` but you can change the values of the webpack output path and express static folder in `app.json`.
