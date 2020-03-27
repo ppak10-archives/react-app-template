@@ -16,7 +16,8 @@
         "actions": "./src/action",
         "app": "./app.json",
         "components": "./src/components",
-        "reducers": "./src/reducers"
+        "reducers": "./src/reducers",
+        "styles": "./src/styles"
       }
     }]
   ]

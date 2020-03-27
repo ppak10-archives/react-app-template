@@ -8,6 +8,18 @@ import React from 'react';
 import {render} from 'react-dom';
 
 // Components
-import App from './components/App';
+import AppComponent from './components/App';
 
-render(<App />, document.getElementById('root'));
+// Context
+import {AppProvider} from 'components/Context';
+
+// Styles
+import 'styles/main.less';
+
+const App = (
+  <AppProvider>
+    <AppComponent />
+  </AppProvider>
+);
+
+render(App, document.getElementById('root'));
